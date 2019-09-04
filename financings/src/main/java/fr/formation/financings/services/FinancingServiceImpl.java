@@ -38,6 +38,22 @@ public class FinancingServiceImpl implements FinancingService {
     }
 
     @Override
+    public void update(FinancingDto dto, Long id) {
+
+	    Financing target = financingRepo.findById(id).get();
+	    target.setName(dto.getName());
+	    target.setAmount(dto.getAmount());
+	    target.setReference(dto.getReference());
+	    target.setRate(dto.getRate());
+	    target.setStartDate(dto.getStartDate());
+	    target.setEndDate(dto.getEndDate());
+	    Client client = clientRepo.getOne(dto.getClientId());
+	    target.setClient(client);
+	    financingRepo.save(target);
+	
+    }
+
+    @Override
     public void delete(Long id) {
 	financingRepo.deleteById(id);
     }

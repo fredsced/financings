@@ -12,4 +12,6 @@ public interface FinancingService {
     Financing getOne(Long id);
 
     void validate(Long id);
+
+    void update(FinancingDto dto, Long id);
 }
