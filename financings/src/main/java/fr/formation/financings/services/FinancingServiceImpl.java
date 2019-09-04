@@ -46,4 +46,11 @@ public class FinancingServiceImpl implements FinancingService {
     public Financing getOne(Long id) {
 	return financingRepo.findById(id).get();
     }
+
+    @Override
+    public void validate(Long id) {
+	Financing target = financingRepo.findById(id).get();
+	target.setValidated(true);
+	financingRepo.save(target);
+    }
 }

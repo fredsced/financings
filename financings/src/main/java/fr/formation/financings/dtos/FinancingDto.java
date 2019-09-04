@@ -38,6 +38,16 @@ public class FinancingDto {
     @NotNull
     private Long clientId;
 
+    private Boolean validated = false;
+
+    public Boolean getValidated() {
+	return validated;
+    }
+
+    public void setValidated(Boolean validated) {
+	this.validated = validated;
+    }
+
     public FinancingDto() {
 	//
     }
