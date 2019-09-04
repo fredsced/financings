@@ -39,6 +39,16 @@ public class Financing {
     @JoinColumn(nullable = false)
     private Client client;
 
+    private Boolean validated = false;
+
+    public Boolean getValidated() {
+	return validated;
+    }
+
+    public void setValidated(Boolean validated) {
+	this.validated = validated;
+    }
+
     public Financing() {
     }
 
