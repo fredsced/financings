@@ -1,5 +1,7 @@
 package fr.formation.financings.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.formation.financings.dtos.ClientDto;
+import fr.formation.financings.dtos.ClientViewDto;
 import fr.formation.financings.entities.Client;
 import fr.formation.financings.services.ClientService;
 
@@ -43,5 +46,10 @@ public class ClientController {
     @GetMapping("/{id}")
     protected Client getOne(@PathVariable("id") Long id) {
 	return service.getOne(id);
+    }
+
+    @GetMapping
+    protected List<ClientViewDto> getAll() {
+	return service.getAll();
     }
 }

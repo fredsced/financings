@@ -3,7 +3,6 @@ package fr.formation.financings.dtos;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import fr.formation.financings.entities.Contact;
 import fr.formation.financings.entities.LegalForm;
 
 public class ClientDto {
@@ -15,7 +14,7 @@ public class ClientDto {
     @NotNull
     private LegalForm legalForm;
 
-    private Contact contact;
+    private Long contactId;
 
     public ClientDto() {
 	//
@@ -37,11 +36,11 @@ public class ClientDto {
 	this.legalForm = legalForm;
     }
 
-    public Contact getContact() {
-	return contact;
+    public Long getContactId() {
+	return contactId;
     }
 
-    public void setContact(Contact contact) {
-	this.contact = contact;
+    public void setContactId(Long contactId) {
+	this.contactId = contactId;
     }
 }

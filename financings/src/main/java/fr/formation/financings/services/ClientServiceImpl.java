@@ -1,8 +1,11 @@
 package fr.formation.financings.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import fr.formation.financings.dtos.ClientDto;
+import fr.formation.financings.dtos.ClientViewDto;
 import fr.formation.financings.entities.Client;
 import fr.formation.financings.entities.Contact;
 import fr.formation.financings.repositories.ClientRepository;
@@ -26,7 +29,7 @@ public class ClientServiceImpl implements ClientService {
 	Client client = new Client();
 	client.setName(dto.getName());
 	client.setLegalForm(dto.getLegalForm());
-	Contact contact = null;
+	Contact contact = contactRepo.getOne(dto.getContactId());
 	client.setContact(contact);
 	clientRepo.save(client);
     }
@@ -36,7 +39,7 @@ public class ClientServiceImpl implements ClientService {
 	Client client = clientRepo.findById(id).get();
 	client.setName(dto.getName());
 	client.setLegalForm(dto.getLegalForm());
-	Contact contact = null;
+	Contact contact = contactRepo.getOne(dto.getContactId());
 	client.setContact(contact);
 	clientRepo.save(client);
     }
@@ -49,5 +52,10 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Client getOne(Long id) {
 	return clientRepo.findById(id).get();
+    }
+
+    @Override
+    public List<ClientViewDto> getAll() {
+	return clientRepo.getAllProjectedBy();
     }
 }
