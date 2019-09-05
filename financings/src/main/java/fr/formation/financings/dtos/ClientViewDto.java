@@ -1,5 +1,6 @@
 package fr.formation.financings.dtos;
 
+import fr.formation.financings.entities.Contact;
 import fr.formation.financings.entities.LegalForm;
 
 public interface ClientViewDto {
@@ -9,4 +10,6 @@ public interface ClientViewDto {
     LegalForm getLegalForm();
 
     Long getId();
+
+    Contact getContact();
 }
