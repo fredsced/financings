@@ -5,12 +5,12 @@ import org.springframework.stereotype.Service;
 import fr.formation.financings.dtos.ContactDto;
 import fr.formation.financings.entities.Contact;
 import fr.formation.financings.entities.ContactInfo;
-import fr.formation.financings.repositories.ContactRepo;
+import fr.formation.financings.repositories.ContactRepository;
 
 @Service
 public class ContactServiceImpl implements ContactService {
 
-    private ContactRepo contactRepo;
+    private ContactRepository contactRepo;
 
     @Override
     public void create(ContactDto contactDto) {
