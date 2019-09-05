@@ -1,5 +1,7 @@
 package fr.formation.financings.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.formation.financings.dtos.FinancingDto;
-import fr.formation.financings.entities.Financing;
+import fr.formation.financings.dtos.FinancingViewDto;
 import fr.formation.financings.services.FinancingService;
 
 @RestController
@@ -42,8 +44,13 @@ public class FinancingController {
     }
 
     @GetMapping("/{id}")
-    protected Financing getOne(@PathVariable("id") Long id) {
+    protected FinancingViewDto getOne(@PathVariable("id") Long id) {
 	return service.getOne(id);
+    }
+
+    @GetMapping
+    protected List<FinancingViewDto> getAll() {
+	return service.getAll();
     }
 
     @PatchMapping("/{id}/validate")
